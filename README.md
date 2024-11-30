@@ -26,7 +26,7 @@
 
 ###
 
-<img align="right" height="250" src="https://www.cwceportal.com/img/card/eoffice.gif"  />
+<img align="right" height="200" src="https://www.cwceportal.com/img/card/eoffice.gif"  />
 
 ###
 
@@ -42,7 +42,7 @@
 
 ###
 
-<img align="left" width="680" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/snake.svg" alt="Snake animation" />
+<img align="left" width="650" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/snake.svg" alt="Snake animation" />
 
 ###
 
