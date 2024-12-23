@@ -27,10 +27,3 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate snake.svg
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.PRIVATE_REPOS_TOKEN }}
