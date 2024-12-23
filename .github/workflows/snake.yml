@@ -23,18 +23,25 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/snake.svg?palette=github-dark
+          outputs: dist/snake.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Debug Output Directory
+      - name: Verify Generated Files
         run: |
-          echo "Checking if dist directory exists..."
+          echo "Checking dist directory..."
           if [ -d "dist" ]; then
-            echo "dist directory exists:"
+            echo "Contents of dist:"
             ls -l dist
           else
-            echo "dist directory does not exist!"
+            echo "dist directory does not exist."
+            exit 1
+          fi
+
+      - name: Validate Build Directory
+        run: |
+          if [ ! -d "dist" ] || [ ! -f "dist/snake.svg" ]; then
+            echo "Build directory or file not found!"
             exit 1
           fi
 
