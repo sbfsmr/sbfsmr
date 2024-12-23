@@ -1,8 +1,8 @@
 name: Generate snake animation
 
 on:
-  schedule: # Run the workflow every hour
-    - cron: "0 * * * *"
+  schedule:
+    - cron: "0 * * * *" # Run the workflow every hour
   workflow_dispatch:
 
 jobs:
@@ -26,22 +26,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 3: Debugging: Verify the dist directory
-      - name: Verify dist directory
+      # Step 3: Debugging: Verify dist directory
+      - name: Debug dist directory
         run: |
-          echo "Checking contents of dist directory..."
-          ls -la dist || echo "Directory dist does not exist"
+          echo "Contents of current directory:"
+          ls -la
+          echo "Contents of dist directory:"
+          ls -la dist || echo "Directory 'dist' does not exist"
 
-      # Step 4: Ensure the dist directory exists (fallback)
+      # Step 4: Ensure the dist directory exists
       - name: Ensure dist directory exists
         run: mkdir -p dist
 
-      # Step 5: Add a placeholder file (only if needed)
+      # Step 5: Add a placeholder snake.svg if generation failed
       - name: Add dummy snake.svg (if generation failed)
-        if: ${{ !success() }}
-        run: echo "<svg></svg>" > dist/snake.svg
+        run: |
+          if [ ! -f dist/snake.svg ]; then
+            echo "<svg></svg>" > dist/snake.svg
+            echo "Dummy snake.svg added to dist directory."
+          fi
 
-      # Step 6: Push the generated snake.svg to the output branch
+      # Step 6: Push snake.svg to the output branch
       - name: Push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
