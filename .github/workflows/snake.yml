@@ -2,7 +2,7 @@ name: Generate snake animation
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 * * * *" # Adjust schedule as needed
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create dist directory
+      - name: Create dist Directory
         run: mkdir -p dist
 
       - name: Generate snake.svg
@@ -27,14 +27,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify Generated Files
+      - name: Debug Dist Directory
         run: |
           echo "Checking dist directory..."
           if [ -d "dist" ]; then
             echo "Contents of dist:"
-            ls -l dist
+            ls -la dist
           else
-            echo "dist directory does not exist."
+            echo "Dist directory does not exist."
             exit 1
           fi
 
