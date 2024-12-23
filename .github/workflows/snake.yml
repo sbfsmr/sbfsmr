@@ -2,7 +2,7 @@ name: Generate snake animation
 
 on:
   schedule:
-    - cron: "0 * * * *" # Adjust schedule as needed
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -16,34 +16,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create dist Directory
-        run: mkdir -p dist
+      - name: Validate GitHub Username
+        run: echo "GitHub Username:${{ github.repository_owner }}"
 
-      - name: Generate snake.svg
+      - name: Generate snake.svg (Debug Mode)
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/snake.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: generate
 
-      - name: Debug Dist Directory
-        run: |
-          echo "Checking dist directory..."
-          if [ -d "dist" ]; then
-            echo "Contents of dist:"
-            ls -la dist
-          else
-            echo "Dist directory does not exist."
-            exit 1
-          fi
+      - name: Debug Action Output
+        run: echo "Action output:${{ steps.generate.outputs }}"
 
-      - name: Validate Build Directory
+      - name: Debug Working Directory
         run: |
-          if [ ! -d "dist" ] || [ ! -f "dist/snake.svg" ]; then
-            echo "Build directory or file not found!"
-            exit 1
-          fi
+          echo "Current working directory:"
+          pwd
+          echo "Listing contents:"
+          ls -la
 
       - name: Push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
