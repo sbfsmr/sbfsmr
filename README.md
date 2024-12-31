@@ -40,11 +40,9 @@
   </a>
 </div>
 
-### Snake Animation - Default Theme
-<img align="left" width="620" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/<commit_id>/github-contribution-grid-snake.svg" alt="Snake animation default theme" />
+### 
 
-### Snake Animation - Dark Theme
-<img align="left" width="620" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/<commit_id>/github-contribution-grid-snake-dark.svg" alt="Snake animation dark theme" />
+<img align="left" width="620" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/a4a08e886e1e8b03839347f17541a61d7cbb7f94/github-contribution-grid-snake-dark.svg" alt="" />
 
 ###
 
