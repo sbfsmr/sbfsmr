@@ -26,10 +26,8 @@
 
 ###
 
-<!-- Default Theme -->
-<picture>
-  <img src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake.svg" alt="Snake animation" />
-</picture>
+  <img src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
+
 
 ###
 
