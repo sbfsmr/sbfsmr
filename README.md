@@ -42,7 +42,7 @@
 
 ###
 
-<img align="left" width="620" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake.svg" alt="Snake animation" />
+<img align="left" width="620" src="https://github.com/sbfsmr/sbfsmr/blob/output/snake.svg" alt="Snake animation" />
 
 ###
 
