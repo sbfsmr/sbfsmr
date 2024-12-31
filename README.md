@@ -43,7 +43,12 @@
 
 ### 
 
-<img align="left" width="620" src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/a4a08e886e1e8b03839347f17541a61d7cbb7f94/github-contribution-grid-snake-dark.svg" alt="" />
+<!-- Default Theme -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake-dark.svg" />
+  <img src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake.svg" alt="Snake animation" />
+</picture>
+
 
 ###
 
