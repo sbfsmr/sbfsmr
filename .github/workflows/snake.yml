@@ -1,54 +1,25 @@
-name: Generate snake animation
+
+name: Generate snake game
 
 on:
-  schedule:
-    - cron: "0 * * * *" # Run the workflow every hour
+  schedule: # execute every 12 hours
+    - cron: "* */12 * * *"
   workflow_dispatch:
 
 jobs:
-  generate:
-    permissions:
-      contents: write
+  build:
+    name: Jobs to update datas
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Step 2: Generate snake.svg
-      - name: Generate snake.svg
-        uses: Platane/snk/svg-only@v3
+      # Snake Animation
+      - uses: Sutil/snk@master
+        id: snake-gif
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/snake.svg
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          svg_out_path: dist/github-contribution-grid-snake2.svg
+          snake_color: 'blue'
 
-      # Step 3: Debugging: Verify dist directory
-      - name: Debug dist directory
-        run: |
-          echo "Contents of current directory:"
-          ls -la
-          echo "Contents of dist directory:"
-          ls -la dist || echo "Directory 'dist' does not exist"
-
-      # Step 4: Ensure the dist directory exists
-      - name: Ensure dist directory exists
-        run: mkdir -p dist
-
-      # Step 5: Add a placeholder snake.svg if generation failed
-      - name: Add dummy snake.svg (if generation failed)
-        run: |
-          if [ ! -f dist/snake.svg ]; then
-            echo "<svg></svg>" > dist/snake.svg
-            echo "Dummy snake.svg added to dist directory."
-          fi
-
-      # Step 6: Push snake.svg to the output branch
-      - name: Push snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
         with:
           target_branch: output
           build_dir: dist
