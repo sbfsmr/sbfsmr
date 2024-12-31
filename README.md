@@ -44,7 +44,7 @@
 ### 
 
 <!-- Default Theme -->
-<picture>
+<picture style="max-width=75%">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake-dark.svg" />
   <img src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </picture>
