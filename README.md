@@ -26,7 +26,7 @@
 
 ###
 
-  <img src="https://raw.githubusercontent.com/sbfsmr/sbfsmr/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
+<img align="right" height="180" src="https://github.com/sbfsmr/sbfsmr/blob/main/SleepFunc.gif"  />
 
 
 ###
